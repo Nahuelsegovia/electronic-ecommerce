@@ -1,0 +1,252 @@
+body{
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-height: 100vh;
+  background: #252946;
+  color: white;
+  font-family: 'Oxygen', sans-serif;
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.menu-items{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #10153b;
+    width: 95%;
+    height: 60px;
+    color: white;
+    border-radius: 8px;
+}
+
+.menu-items a, a:link, a:visited{
+    text-decoration: none;
+    color: white;
+    margin: 4px;
+    font-size: 20px;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex: 1;
+    padding: 33px;
+}
+
+#mapid { 
+    height: 400px; 
+    width: 700px;
+}
+
+.electronic-task{
+    background: #10153b;
+    height: 400px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.electronic-task .task{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.electronic-task button{
+    margin-top: 20px;
+    width: 240px;
+    height: 30px;
+}
+.electronic-task .task p:nth-child(1){
+    font-size: 30px;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* Productos */
+.main-productos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.productos{
+    width: 500px;
+    margin-top: 30px;
+}
+
+.formulario-productos{
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario-productos .inputs{
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin:5px;
+    background: #252946;
+    color: white;
+    font-size: 30px;
+}
+
+.formulario-productos textarea{
+    border: 1px solid white;
+    border-radius: 5px;
+    margin:5px;
+    background: #252946;
+    color: white;
+    font-size: 30px;
+}
+
+.formulario-productos button{
+    width: 40%;
+    border: 1px solid white;
+    margin-left: 260px;
+    background: #10153b;
+    color: white;
+    font-size: 20px;
+}
+
+
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+h2{
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    padding: 30px 0;
+}
+
+/* Table Styles */
+
+.table-wrapper{
+    margin: 10px 70px 70px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+    color: black;
+}
+
+.fl-table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.fl-table td, .fl-table th {
+    text-align: center;
+    padding: 8px;
+}
+
+.fl-table td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+}
+
+.fl-table thead th {
+    color: #ffffff;
+    background: #4FC3A1;
+}
+
+
+.fl-table thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #324960;
+}
+
+.fl-table tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+/* Responsive */
+
+@media (max-width: 767px) {
+    .fl-table {
+        display: block;
+        width: 100%;
+    }
+    .table-wrapper:before{
+        content: "Scroll horizontally >";
+        display: block;
+        text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
+    }
+    .fl-table thead, .fl-table tbody, .fl-table thead th {
+        display: block;
+    }
+    .fl-table thead th:last-child{
+        border-bottom: none;
+    }
+    .fl-table thead {
+        float: left;
+    }
+    .fl-table tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+    }
+    .fl-table td, .fl-table th {
+        padding: 20px .625em .625em .625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 120px;
+        font-size: 13px;
+        text-overflow: ellipsis;
+    }
+    .fl-table thead th {
+        text-align: left;
+        border-bottom: 1px solid #f7f7f9;
+    }
+    .fl-table tbody tr {
+        display: table-cell;
+    }
+    .fl-table tbody tr:nth-child(odd) {
+        background: none;
+    }
+    .fl-table tr:nth-child(even) {
+        background: transparent;
+    }
+    .fl-table tr td:nth-child(odd) {
+        background: #F8F8F8;
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tr td:nth-child(even) {
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tbody td {
+        display: block;
+        text-align: center;
+    }
+}
