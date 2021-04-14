@@ -4,9 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Services\ProductService as ProductService;
+use App\Services\PhotoService as PhotoService;
+
 
 class ProductController extends Controller
-{
+{   private $productService;
+    private $photoService;
+
+    public function __construct(ProductService $productService, PhotoService $photoService)
+    {
+        $this->productService = $productService;
+        $this->photoService = $photoService;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -35,18 +45,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $dataValidation = $request->validate([
-            'product_title' => 'required|max:30',
-            'product_price' => 'required|max:30',
-            'product_content' => 'required|max:225',
-            'product_photo' => 'required|max:100',
-        ]);
-
-        try {
-            Product::create($dataValidation);
-        } catch (\Exception $e) {
-           return $e;
-        }
+        $this->productService->create($request);
     }
 
     /**
