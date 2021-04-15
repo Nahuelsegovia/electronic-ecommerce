@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Services\ProductService as ProductService;
 use App\Services\PhotoService as PhotoService;
+use Illuminate\Support\Facades\DB;
 
 
 class ProductController extends Controller
@@ -78,8 +79,8 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+        $this->productService->update($id, $request);
     }
 
     /**
@@ -90,6 +91,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        return 'Destroy laravel';
+        $this->productService->destroy($id);
     }
 }

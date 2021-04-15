@@ -37,7 +37,7 @@ Route::group(['prefix' => 'admin'], function(){
 
     /* CONTROLLERS */
     Route::resource('/productos', App\Http\Controllers\ProductController::class)->only([
-        'store', 'destroy'
+        'store', 'destroy', 'update', 'show',
     ]);
 });
 
