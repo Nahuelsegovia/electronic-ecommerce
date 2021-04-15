@@ -18,7 +18,7 @@ class appServicecsProductServiceTest extends TestCase
     public function test_create()
     {   
         $product = Http::post('http://localhost:8000/api/admin/productos', 
-            ['product_title' => 'producto ultimo',
+            ['product_title' => 'Ultimo producto creado con testing 3',
             'product_price' => '200000',
             'product_content' => 'Este producto es importado de italia',
             'product_photo' => 'imagen.png',]
@@ -27,15 +27,15 @@ class appServicecsProductServiceTest extends TestCase
        $this->assertEquals($product->status(), 200);
     }
 
-   /*public function test_destroy()
+   public function test_destroy()
     {
-        $product = Http::delete('http://localhost:8000/api/admin/productos/6');
-        $this->assertEquals($product->body(), 'Product has been deleted successfully');
-    }*/
+        $product = Http::delete('http://localhost:8000/api/admin/productos/13');
+        $this->assertEquals($product->status(), 200);
+    }
 
     public function test_update(){
-        $product = Http::put('http://localhost:8000/api/admin/productos/7', [
-            'product_title' => 'New titles',
+        $product = Http::put('http://localhost:8000/api/admin/productos/8', [
+            'product_title' => 'New titless',
         ]);
         $this->assertEquals($product->status(), 200);
     }
