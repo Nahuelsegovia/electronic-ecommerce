@@ -57,7 +57,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+       echo $this->productService->show($id);
     }
 
     /**
