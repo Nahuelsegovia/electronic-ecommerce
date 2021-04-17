@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Facade\FlareClient\Http\Response;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -17,23 +18,21 @@ class appServicesProductServiceTest extends TestCase
      */
     public function test_create()
     {   
-        //$file=fopen('../storage/images/E1mlso3ZuBILBwGpVn0ZR2unjdEHwFkP3Q9VVUFV.png','r');
+        $image_path = 'storage/app/public/images/E1mlso3ZuBILBwGpVn0ZR2unjdEHwFkP3Q9VVUFV.png';
+        //$file = mb_convert_encoding(Storage::disk('local')->get('public/images/E1mlso3ZuBILBwGpVn0ZR2unjdEHwFkP3Q9VVUFV.png'),'UTF-8', 'UTF-8');        
         $product = Http::post('http://localhost:8000/api/admin/productos', 
 
             [
-                
-            'form_params' => [
                 'product_title' => 'Product test',
                 'product_price' => '200000',
-                
+                'product_content' => 'dadada',
                 'multipart' => [
                         [   
-                            'Content-type' => 'multipart/form-data',
                             'name'     => 'product_photo',
-                            'contents' => mb_convert_encoding(Storage::disk('local')->get('public/images/E1mlso3ZuBILBwGpVn0ZR2unjdEHwFkP3Q9VVUFV.png'),'UTF-8', 'UTF-8')
+                            'contents' => fopen($image_path, 'r'),
                         ]
                     ],
-                ]
+                'content-type' => 'application/x-www-form-urlencoded'
             ]
         );
        

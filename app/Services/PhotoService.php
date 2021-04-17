@@ -10,7 +10,7 @@ class PhotoService{
             $file = $request->file('product_photo');
             $path = $file->store('public/images/');
             $image = Image::make(Storage::get($path));
-            $image->resize(348, 228);
+            $image->resize(400, 400);
             Storage::put($path, (string) $image->encode('jpg', 100));
             return $file->hashName();
         }
