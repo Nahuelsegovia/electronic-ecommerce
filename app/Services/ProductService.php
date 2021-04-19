@@ -5,6 +5,7 @@ use App\Models\Product;
 use Exception;
 use Illuminate\Http\Response;
 use App\Services\PhotoService as Photoservice;
+use Illuminate\Support\Facades\Validator;
 
 class ProductService{
 
@@ -23,17 +24,27 @@ class ProductService{
             'product_photo' => 'required|max:225',
         ]);*/
 
+        $validator = Validator::make($request->all(), [
+            'product_title' => 'string|required|min:5|max:30',
+            'product_price' => 'numeric|required|min:1|max:30',
+            'product_content' => 'string|required|min:5|max:40',
+            'product_photo' => 'required|mimes:jpeg,jpg,png,gif',
+        ]);
+        
+        if($validator->fails()){
+            dd('nop');
+        }
+
         try {
+
             $product = new Product();
             $product->product_title = $request->product_title;
             $product->product_price = $request->product_price;
             $product->product_content = $request->product_content;
             $product->product_photo = $this->photoService->create($request);
             $product->save();
+            return $product;
 
-            if($product){
-                return response(200);
-            }
         } catch (\Exception $e) {
            throw $e;
         }
